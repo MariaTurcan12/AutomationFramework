@@ -1,35 +1,36 @@
 package Base;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BaseTest {
 
     public WebDriver driver;
 
-    @Before
+
     public void Setup(){
 
-        // Setam driverul pentru browser
 
-        System.setProperty("webdriver.chrome.driver", "C:/Users/marturcan/Downloads/chromedriver-win64 (1)/chromedriver-win64/chromedriver.exe");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headLest");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--window-size=1920,1080");
+        chromeOptions.addArguments("--no-sandbox");
+        WebDriverManager.chromedriver().setup();
 
-        // Facem o instanta de Chrome
 
-        driver = new ChromeDriver();
-
+        driver = new ChromeDriver(chromeOptions);
         // accesam un anumit URL
-
         driver.get("https://demo.automationtesting.in/Index.html");
-
         // facem instanta maximized
-
         driver.manage().window().maximize();
     }
 
-    @After
+
     public void clearenvironment (){
 
         //driver.quit();
