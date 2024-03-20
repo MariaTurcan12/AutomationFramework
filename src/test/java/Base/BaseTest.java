@@ -16,7 +16,7 @@ public class BaseTest {
 
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headLest");
+        chromeOptions.addArguments("--headLess");
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.addArguments("--window-size=1920,1080");
         chromeOptions.addArguments("--no-sandbox");
